@@ -1,0 +1,35 @@
+{
+  "description": "Web site project powered by thor-web",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {},
+  "private": true,
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "shx rm -rf dist/* && tsc -P tsconfig.json",
+    "postbuild": "prettier --write ./dist",
+    "prestart": "npm run build",
+    "start": "cross-env NODE_ENV=production node .",
+    "watch": "shx rm -rf dist/* && tsc --watch -P tsconfig.json",
+    "predebug": "npm run watch &",
+    "debug": "cross-env NODE_ENV=development nodemon -e js,sql --inspect ."
+  },
+  "name": "my-project",
+  "dependencies": {
+    "thor-web": "^1.4.26"
+  },
+  "devDependencies": {
+    "@types/node": "^14.18.12",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.1",
+    "renamer": "^2.0.1",
+    "shx": "^0.3.4",
+    "typescript": "^4.6.3"
+  }
+}

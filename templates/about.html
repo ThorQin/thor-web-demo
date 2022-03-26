@@ -1,0 +1,47 @@
+{{@arg serverInfo}}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Thor Web Demo</title>
+		<style>
+			table {
+				border-collapse: collapse;
+			}
+			thead {
+				font-weight: bold;
+				background-color: darkgrey;
+			}
+			td {
+				padding: 4px;
+				border: 1px solid #ddd;
+			}
+			td:nth-last-child(1) {
+				word-break: break-all;
+				word-wrap: break-word;
+				min-width: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Server Environment Variables</h1>
+		<div style="padding: 10px"></div>
+			<table>
+				<thead>
+					<tr>
+						<td>NAME</td>
+						<td>VALUE</td>
+					</tr>
+				</thead>
+				<tbody>
+				{{@loop key : value of serverInfo}}
+					<tr>
+						<td>{{key}}</td>
+						<td>{{value}}</td>
+					</tr>
+				{{@end loop}}
+				</tbody>
+			</talbe>
+		</div>
+	</body>
+</html>
